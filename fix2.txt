@@ -1,14 +1,127 @@
+ git init gitLabb1 
 
-<<<<<<< HEAD
-git tag -a v1.0 -m "Version 1.0" 
+ git init 
 
-git push origin v1.0 
+ git checkout –b main 
 
-git rebase -i HEAD~2 
-=======
-git tag -a v1.0 -m "Version 1.0" 
+ echo "duck`nmoose`ncat" > README.md 
 
-git push origin v1.0 
+ git add README.md 
 
-git rebase -i HEAD~2 
->>>>>>> a1127cc00dac3fd5325ded5b7e07c804c46c9825
+ git commit -m "Initial commit" 
+
+ git checkout -b feature1 
+
+ echo “dog” >> README.md 
+
+ (Get-Content README.md) -replace 'moose', 'mouse' | Set-Content README.md 
+
+ git add README.md 
+
+ git commit -m "Add dog, change moose to mouse" 
+
+ git checkout main 
+
+ (Get-Content README.md) -replace 'moose', 'mahmut' | Set-Content README.md 
+
+ git add README.md 
+
+ git commit -m "Change moose to mahmut in README.md" 
+
+ git merge feature1 
+
+ git mergetool 
+
+ Get-ChildItem -Recurse -Filter 'README.md.orig' | Remove-Item 
+
+ git add README.md 
+
+ git commit –m “Resolved merge conflict” 
+
+ git tag extinct 
+
+ git show extinct 
+
+ git reset --hard HEAD~1 
+
+ git branch feature2 
+
+ $TextInfo = (Get-Culture).TextInfo 
+
+ (Get-Content README.md) | ForEach-Object { 
+  $TextInfo.ToTitleCase($_) 
+ } | Set-Content README.md 
+
+ git add README.md 
+
+ git commit -m "Capitalize the first letter of each animal name" 
+
+ git checkout feature2 
+
+ echo "" | Set-Content fix1.txt 
+
+ git add fix1.txt 
+
+ git commit -m "Add fix1.txt" 
+
+ echo "" | Set-Content fix2.txt 
+
+ git add fix2.txt 
+
+ git commit -m "Add fix2.txt" 
+
+ git log 
+
+ git checkout main 
+
+ git ls-files –-deleted 
+
+ git cherry-pick 57a6546a7f5771cd7ee0e30803488590d156aca1 
+
+  
+
+ git remote add origin https://github.com/aeldin/GitLabb1.git 
+
+ git push -u origin main 
+
+ git checkout feature1 
+
+ git push -u origin feature1 
+
+ git checkout feature2 
+
+ git push  -u origin feature2 
+
+ git add fix2.txt 
+
+ git commit -m "Update fix2.txt with Github-commands" 
+
+ git push -u origin feature2 
+
+ git checkout main 
+
+ echo "*.jar" > .gitignore 
+
+ echo "/out/" >> .gitignore 
+
+ echo "/target/*" >> .gitignore 
+
+ echo "!/target/**/*.html" >> .gitignore 
+
+ add .gitignore 
+
+ commit -m "Add .gitignore with rules for jar files and target directory" 
+
+ git push origin main 
+
+ git tag -a v1.0 -m "Version 1.0" 
+
+ git push origin v1.0 
+
+ git rebase -i HEAD~2 
+
+ git checkout -b feature3 
+
+ git add fix2.txt 
+
+ git commit -m "Update fix2.txt with commands from steps 18 and 19" 
