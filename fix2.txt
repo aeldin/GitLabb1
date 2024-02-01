@@ -1,6 +1,14 @@
 
+<<<<<<< HEAD
 git tag -a v1.0 -m "Version 1.0" 
 
 git push origin v1.0 
 
 git rebase -i HEAD~2 
+=======
+git tag -a v1.0 -m "Version 1.0" 
+
+git push origin v1.0 
+
+git rebase -i HEAD~2 
+>>>>>>> a1127cc00dac3fd5325ded5b7e07c804c46c9825
